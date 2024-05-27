@@ -1,0 +1,60 @@
+$main-gap: 20px;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+ul {
+  margin-bottom: $main-gap;
+
+    li {
+      list-style-type: none;
+    }
+}
+
+h2 {
+  margin-bottom: $main-gap;
+}
+
+.cv-main {
+  max-width: 850px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid; // start of GRID layout
+  grid-template-areas: "header header" "personal detalis"; // defined areas in the net of GRID - all net will have 2 columns and 2 rows:
+  // --> in the 1 row: both columns will be taken by "Header",
+  // --> in the 2 row: 1st column - by "Personal", 2nd - by "Details".
+  grid-template-columns: 280px 1fr; // is setting fixed size of left column (for 280px)
+}
+
+.cv-header {
+  grid-area: header; // this element with this class will take all area named "header"
+  padding: $main-gap;
+  text-align: center;
+}
+
+.cv-personal {
+  padding: $main-gap;
+  background-color: #eee;
+  text-align: center;
+
+  .cv-photo {
+    width: 100%;
+    margin-top: $main-gap;
+    margin-bottom: $main-gap;
+    border-radius: 50%;
+  }
+}
+
+.cv-motto {
+  margin-bottom: $main-gap*2;
+}
+
+.cv-details {
+  padding: $main-gap;
+  text-align: center;
+  background-color: #fafafa;
+}

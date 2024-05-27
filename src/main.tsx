@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import './style.scss'
 
 interface Experience {
   year: number;
@@ -20,7 +21,7 @@ const cvData: CVData = {
   photo: "https://placehold.co/400x400?text=Ela%20JS",
   name: "Ela",
   lastName: "JS",
-  position: "JavaScript Wizard",
+  position: "JavaScript Wizard Developer",
   experience: [
     {year: 2022, description: "Discovered that 'undefined' is just a misunderstood mythical creature living in the console"},
     {year: 2023, description: "Found a bug that made the app play 'Never Gonna Give You Up' every time someone clicked 'Exit'"},
@@ -36,17 +37,18 @@ const cvData: CVData = {
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <main>
-      <header>
+    <main className='cv-main'>
+      <header className='cv-header'>
         <h1>CV - {cvData.name} {cvData.lastName}</h1>
       </header>
-      <aside>
+      <aside className='cv-personal'>
         <h2>Personal data</h2>
-        <img src={cvData.photo} alt={`${cvData.name} ${cvData.lastName} profile photo`} />
+        <img className='cv-photo' src={cvData.photo} alt={`${cvData.name} ${cvData.lastName} profile photo`} />
         <p>{ cvData.name } { cvData.lastName }</p>
-        <small>{ cvData.position }</small>
+        <h3>{ cvData.position }</h3>
       </aside>
-      <section>
+      <section className='cv-details'>
+      <div className='cv-motto'><strong>Life motto:</strong> { cvData.lifeMotto }</div>
         <h2>Experience</h2>
         <ul>
           { cvData.experience.map((experience) => (
@@ -63,7 +65,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             </li>
           ))}
         </ul>
-        <p><strong>Life motto:</strong> { cvData.lifeMotto }</p>
       </section>
     </main>
   </React.StrictMode>,
